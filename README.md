@@ -1,1 +1,1 @@
-# manipule-DOM
+# JAVASCRIPT DOM
