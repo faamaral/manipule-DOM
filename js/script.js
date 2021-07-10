@@ -18,7 +18,7 @@ const fillList = () => {
 
   let itemList = document.createElement('li');
   itemList.appendChild(document.createTextNode(title));
-  list.insertBefore(itemList);
+  list.insertBefore(itemList, null);
   
   //console.log(title, author, link, lido);
 }
