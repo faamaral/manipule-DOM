@@ -15,15 +15,24 @@ function printList(read) {
   let itemList = document.createElement('li');
   let div = document.createElement('div');
   let btn_buy = document.createElement('button');
-  btn_buy.innerHTML = '<span class="material-icons">shopping_cart</span>';
+  btn_buy.innerHTML = `<a href="${link}" target="_blank"><span class="material-icons">shopping_cart</span></a>`;
   btn_buy.className+=" btn-buy";
+  let btn_delete = document.createElement('button');
+  btn_delete.innerHTML = '<span class="material-icons">delete</span>';
+  btn_delete.className+=" delete";
+  btn_delete.addEventListener('click', function(){
+    itemList.parentNode.removeChild(itemList);
+  })
   let text = document.createTextNode(`${title} - ${author}`);
+
+  div.appendChild(btn_buy);
+  div.appendChild(btn_delete);
   if (read == '1') {
     itemList.classList.add("lido");
   }
  
   itemList.appendChild(text);
-  itemList.appendChild(btn_buy);
+  itemList.appendChild(div);
   
   list.append(itemList);
   
