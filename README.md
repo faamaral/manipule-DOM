@@ -1,1 +1,2 @@
-# JAVASCRIPT DOM
+# Manipulate DOM with javascript
+
