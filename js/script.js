@@ -1,22 +1,22 @@
 var title, author, link ;
 var count = 0;
 
+var buttonSave = document.querySelector(".save");
+buttonSave.addEventListener('click', (e) => { 
+  e.preventDefault();
+  fillList();
+  
+},false);
+console.log(buttonSave);
+
 function printList(read) {
   //checkEmptyList();
   let list = document.querySelector('ul');
   let itemList = document.createElement('li');
   let div = document.createElement('div');
-  let btn_buy = document.createElement('a');
-  let span_buy = document.createElement('span');
-  span_buy.className+=" material_icons";
-  span_buy.textContent = "shopping_cart";
-  btn_buy.appendChild(span_buy);
-  btn_buy.className+=" btn_buy";
-  btn_buy.href=link;
-  /*for (let i = 0; i < title.length; i++) {
-    
-    
-  }*/
+  let btn_buy = document.createElement('button');
+  btn_buy.innerHTML = '<span class="material-icons">shopping_cart</span>';
+  btn_buy.className+=" btn-buy";
   let text = document.createTextNode(`${title} - ${author}`);
   if (read == '1') {
     itemList.classList.add("lido");
@@ -47,9 +47,12 @@ function fillList() {
   author=authorInput;
   let linkInput = form.querySelector('input[name="link"]').value;
   link=linkInput;
-  let readInput = form.querySelector('input[name="lido"]:checked').value;
+  var readInput = form.querySelector('input[name="lido"]');
+  if (!readInput.checked) {
+    readInput = '0';
+  }
 
-  printList(readInput);
+  printList(readInput.value);
  
 
   
