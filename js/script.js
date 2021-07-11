@@ -1,13 +1,20 @@
+/* 
+Descricao :
+	Este arquivo é responsável por receber o conteúdo dos campos html e adicioná-los a uma lista
+Aluno :
+	Fabiano Amaral Alves
+Data :
+	11 / 07 / 2021
+*/
+
 var title, author, link ;
-var count = 0;
 
 var buttonSave = document.querySelector(".save");
 buttonSave.addEventListener('click', (e) => { 
   e.preventDefault();
-  fillList();
-  
-},false);
-console.log(buttonSave);
+  fillList(); 
+}, false);
+//console.log(buttonSave);
 
 function printList(read) {
   //checkEmptyList();
@@ -21,8 +28,11 @@ function printList(read) {
   btn_delete.innerHTML = '<span class="material-icons">delete</span>';
   btn_delete.className+=" delete";
   btn_delete.addEventListener('click', function(){
-    itemList.parentNode.removeChild(itemList);
-  })
+    let confirm = window.confirm("Deseja realmente apagar este livro?");
+    if (confirm) {
+      itemList.parentNode.removeChild(itemList);
+    }
+  });
   let text = document.createTextNode(`${title} - ${author}`);
 
   div.appendChild(btn_buy);
@@ -62,11 +72,8 @@ function fillList() {
   }
 
   printList(readInput.value);
- 
-
   
-  
-  console.log(title, author, link, readInput);
+  //console.log(title, author, link, readInput);
 }
 
 checkEmptyList()
