@@ -26,8 +26,8 @@ function printList(read) {
   btn_buy.className+=" btn-buy";
   let btn_delete = document.createElement('button');
   btn_delete.innerHTML = '<span class="material-icons">delete</span>';
-  btn_delete.className+=" delete";
-  btn_delete.addEventListener('click', function(){
+  btn_delete.className += " delete";
+  btn_delete.addEventListener('click', function() {
     let confirm = window.confirm("Deseja realmente apagar este livro?");
     if (confirm) {
       itemList.parentNode.removeChild(itemList);
@@ -75,5 +75,15 @@ function fillList() {
   
   //console.log(title, author, link, readInput);
 }
+
+function setFavicons(favImg) {
+  let headTitle = document.querySelector('head');
+  let setFavicon = document.createElement('link');
+  setFavicon.setAttribute('rel','shortcut icon');
+  setFavicon.setAttribute('href',favImg);
+  headTitle.appendChild(setFavicon);
+}
+
+setFavicons('../favicon_io/favicon-16X16.png');
 
 checkEmptyList()

@@ -92,11 +92,11 @@
     ```javascript
     let btn_delete = document.createElement('button');
     btn_delete.innerHTML = '<span class="material-icons">delete</span>';
-    btn_delete.className+=" delete";
-    btn_delete.addEventListener('click', function(){
+    btn_delete.className += " delete";
+    btn_delete.addEventListener('click', function() {
         let confirm = window.confirm("Deseja realmente apagar este livro?");
         if (confirm) {
-        itemList.parentNode.removeChild(itemList);
+            itemList.parentNode.removeChild(itemList);
         }
     });
     ```
